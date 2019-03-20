@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- /export/home/cs200/cs200139/Documents/labs/lab5/roondaboot.html   -->
+<!-- Nathan Reichert                                                   -->
+<!-- Section 4                                                         -->
+<!-- Created 9/26/2013                                                 -->
+<!-- Last Edited 9/26/2013                                             -->
+<!-- The purpose of this page is to demonstrate usefulness             -->
+<!-- Of user defined functions to perform math functions and round     -->
+<!-- ================================================================= -->
+<html>
+    <head>
+        <title>Number Rounder</title>
+        <script type="text/javascript">
+            function RoundoMatic()
+            // Assumes: Decimal entered in number box and places to round entered in the other
+            // Results: Will round the entered number to the desired number of decimal places
+            {
+            number=parseFloat(document.getElementById('numberBox').value);
+                    placeN=parseFloat(document.getElementById('placeBox').value);
+                    exp=Math.pow(10,placeN);
+                    rounded=Math.round(number*exp)/exp;
+                    document.getElementById('outputDiv').innerHTML=
+                    '<p>The number '+
+                    number+
+                    ' rounded to '+
+                    placeN+
+                    ' places is '+
+                    rounded+
+                    '.</p>';
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Number Rounder</h2>
+        <p>
+            Enter a Number: <input type="text" id="numberBox" size="8" value="3.14159">
+        </p>
+        <p>
+            Places to round: <input type="text" id="placeBox" size="8" value="2">
+        </p>
+        <input type="button" value="Round It!"
+            onclick="RoundoMatic();">
+        <hr>
+        <div id="outputDiv"></div>
+    </body>
+</html>
